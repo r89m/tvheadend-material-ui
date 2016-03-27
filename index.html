@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>TVHeadend</title>
+
+    <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/bootstrap-material-design/dist/css/material.css" />
+
+    <style type="text/css">
+
+        .card{
+            margin-bottom: 24px;
+            height: 380px !important;
+        }
+
+        .card-content{
+            padding: 0px 24px;
+        }
+
+        .card-body{
+            padding: 16px 0px !important;
+        }
+
+        .card-footer{
+            position: absolute;
+            width: 100%;
+            text-align: right;
+            left: 0px;
+            bottom: 0px;
+        }
+
+        .card .loading-content{
+            text-align: center;
+            padding-top: 128px;
+            font-size: 3em;
+        }
+
+        #storage-status-legend li{
+            line-height: 2em;
+        }
+        
+        #storage-status-legend li span{
+            width: 15px;
+            height: 15px;
+            border: 1px solid #333333;
+            position: relative;
+            top: 5px;
+            float: left;
+            margin-right: 8px;
+        }
+
+        .empty-list{
+            text-align: center;
+            display: none;
+        }
+
+        table tr{
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table thead{
+            font-family: "Roboto Condensed";
+            color: #757575;
+        }
+        
+        table tbody{
+            color: #212121;
+        }
+
+        table tbody tr:hover{
+            background: #EEEEEE;
+        }
+
+        table .numeric-field{
+            text-align: right
+        }
+
+        .results table tr td, .results table tr th{
+            padding: 8px 16px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        @media screen and (min-aspect-ratio: 13/9){ /* landscape */
+
+        }
+        @media screen and (max-aspect-ratio: 13/9){ /* portrait */
+
+            .hide-mobile-portrait{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div data-src="chrome/navbar"></div>
+
+<div id="sections" style="padding: 8px 32px;">
+    <div id="section-overview" data-src="section/overview"></div>
+    <div id="section-guide" data-src="section/guide"></div>
+    <div id="section-recording" data-src="section/recording"></div>
+    <div id="section-settings" data-src="section/settings"></div>
+</div>
+
+<!-- These should be moved into each view file - require.js? -->
+<script type="text/javascript" src="vendors/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="vendors/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="vendors/bootstrap-material-design/dist/js/material.js"></script>
+<script type="text/javascript" src="vendors/bootstrap-material-design/dist/js/ripples.js"></script>
+<script type="text/javascript" src="vendors/jquery-hashchange/jquery.ba-hashchange.js"></script>
+<script type="text/javascript" src="vendors/knockout/dist/knockout.debug.js"></script>
+<script type="text/javascript" src="vendors/Chart.js/Chart.js"></script>
+
+<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>
+
+<!--    TODO: Copy dist to vendors folder?
+        TODO: .gitignore bower_components -->

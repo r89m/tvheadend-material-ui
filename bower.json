@@ -1,0 +1,29 @@
+{
+  "name": "TVHeadend Material UI",
+  "version": "0.0.1",
+  "authors": [
+    "Richard Miles <richard.miles@fast-chat.co.uk>"
+  ],
+  "description": "A material inspired web interface for TVHeadend",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "CC-BY SA",
+  "homepage": "http://github.com/shaggythesheep/tvheadend-material-ui",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "bootstrap-material-design": "~0.3.0",
+    "knockout": "~3.3.0",
+    "Chart.js": "~1.0.2",
+    "jquery-hashchange": "*",
+    "angular": "~1.4.5",
+    "angular-material": "~0.11.0"
+  }
+}

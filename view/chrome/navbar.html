@@ -1,0 +1,102 @@
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand" data-bind="">TVHeadend</span>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#overview">Overview</a></li>
+            <li><a href="#guide">Guide</a></li>
+            <li><a href="#recording">Recordings</a></li>
+            <li><a href="#settings">Settings</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form" id="epg-search">
+                <input type="text" class="form-control" placeholder="Search EPG" style="width: 200px;">
+            </form>
+        </ul>
+    </div>
+    <div class="subnav-tabs" style="background: rgba(255, 255, 255, 0.1)">
+        <ul style="margin: 0px">
+            <li>Now & Next</li>
+            <li>Grid View</li>
+        </ul>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(window).hashchange(function(){
+
+        detectCurrentSection();
+    })
+
+    $(document).ready(function(){
+
+        detectCurrentSection();
+    })
+
+    $('#epg-search input').focus(function(){
+
+        $(this).animate({width:400});
+    }).blur(function(){
+
+        $(this).animate({width:200});
+    });
+
+    function detectCurrentSection(){
+
+        var hash = window.location.href.substr(window.location.href.indexOf('#') + 1);
+
+        switch(hash){
+
+            case 'overview':
+            case 'guide':
+            case 'recording':
+            case 'settings':
+                displaySection(hash);
+                break;
+
+            default:
+                console.error("Invalid hash given");
+        }
+    }
+
+    function displaySection(section){
+
+        // Hide old section
+        $('#sections [id^="section-"').hide();
+
+        // Remove 'active' class
+        $('.navbar li a').each(function(){
+            $(this).parent().removeClass("active");
+        });
+
+        switch(section) {
+
+            case 'guide':
+            case 'recording':
+                $('.subnav-tabs').slideDown();
+                break;
+
+            default:
+                $('.subnav-tabs').slideUp();
+        }
+
+
+        // Show new section
+        $('#section-' + section).show();
+
+        // Add 'active' class
+        $(".navbar li a[href='#" + section + "']").parent().addClass("active");
+
+        // Ensure the navigation bar disappears on mobile
+        $(".navbar-responsive-collapse").collapse("hide");
+    }
+
+</script>

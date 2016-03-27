@@ -1,0 +1,13 @@
+<div>
+    <md-grid-list
+            md-cols-sm="1" md-cols-md="2" md-cols-gt-md="6"
+            md-row-height-gt-md="1:1" md-row-height="2:2"
+            md-gutter="12px" md-gutter-gt-sm="24px" >
+
+        <md-grid-tile ng-repeat="section in sections" md-rowspan="1" md-colspan="{{section.width}}" md-colspan-sm="1">
+            PRE {{section.src}}
+            <overview-card section="section" card-src="" ng-attr-cardlink="'section.src'" />
+            POST {{section.src}}
+        </md-grid-tile>
+    </md-grid-list>
+</div>

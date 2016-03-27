@@ -1,0 +1,39 @@
+<h2>Storage Status</h2>
+<div class="card-body">
+    <canvas id="storage-chart" style="width: 100%; margin: 24px 0px;"></canvas>
+
+    <div id="storage-status-legend"></div>
+</div>
+
+<script type="text/javascript">
+
+    var data = [
+        {
+            value: 300,
+            color: "#F7464A",
+            highlight: "#FF5A5E",
+            label: "Used Space (GB)"
+        },
+        {
+            value: 50,
+            color: "#46F74A",
+            highlight: "#5AFF5E",
+            label: "Free Space (GB)"
+        }
+    ];
+
+    // TODO: ChartJs units?
+
+    var options = {
+        scaleLabel : "<%=value%>%",
+        scaleShowLabels: true
+    };
+
+    // Get context with jQuery - using jQuery's .get() method.
+    var ctx = $("#storage-chart").get(0).getContext("2d");
+    // This will get the first returned node in the jQuery collection.
+    var myNewChart = new Chart(ctx).Doughnut(data, options);
+
+    $('#storage-status-legend').html(myNewChart.generateLegend());
+
+</script>
